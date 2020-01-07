@@ -1,6 +1,6 @@
 {
   "name": "nesh",
-  "version": "1.7.0",
+  "version": "2.0.0",
   "description": "An enhanced, extensible shell for Node.js",
   "homepage": "http://danielgtaylor.github.io/nesh/",
   "main": "lib/nesh.js",
@@ -8,9 +8,9 @@
     "nesh": "./bin/nesh.js"
   },
   "scripts": {
-    "pretest": "./node_modules/coffee-script/bin/cake build",
-    "prepublish": "./node_modules/coffee-script/bin/cake build",
-    "test": "./node_modules/coffee-script/bin/cake test"
+    "pretest": "./node_modules/coffeescript/bin/cake build",
+    "prepublish": "./node_modules/coffeescript/bin/cake build",
+    "test": "./node_modules/coffeescript/bin/cake test"
   },
   "repository": {
     "type": "git",
@@ -41,22 +41,22 @@
   },
   "license": "MIT",
   "dependencies": {
-    "babel-core": "^5.4.7",
-    "colors": "^1.1.0",
+    "@babel/core": "^7.7.7",
+    "colors": "^1.4.0",
     "intdoc": "^1.2.0",
-    "lodash-node": "^3.9.3",
-    "optimist": ">=0.3.5 <1",
-    "semver": "^4.3.6",
-    "underscore": ">=1.4 <2"
+    "lodash": "^4.17.15",
+    "optimist": "^0.6.1",
+    "semver": "^7.1.1",
+    "underscore": "^1.9.2"
   },
   "peerDependencies": {
-    "coffee-script": ">=1.6.2 <2"
+    "coffeescript": "^1.12.0"
   },
   "devDependencies": {
-    "coffee-script": ">=1.7 <2",
-    "mocha": "^2.2.5"
+    "coffeescript": "^1.12.0",
+    "mocha": "^7.0.0"
   },
   "engines": {
-    "node": ">=0.8.19"
+    "node": ">=12.13.0"
   }
 }

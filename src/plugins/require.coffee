@@ -4,7 +4,7 @@ __doc__ = """Shorthand for requiring and assigning a module
   .require ./User -> User = require('./User')
   .require ./model/User -> User = require('./model/User')
   .require use-global-fibrous -> useGlobalFibrous = require('use-global-fibrous')
-  .require lodash-node/modern/objects -> objects = require('lodash-node/modern/objects')
+  .require lodash/objects -> objects = require('lodash/objects')
 
   If the `require` is successful, the name of the variable that the module
   has been assigned to will be pre-filled into the REPL as the next
@@ -80,7 +80,7 @@ exports.postStart = (context) ->
         repl.outputStream.write colors.red ".require: #{ e }\n"
     repl.displayPrompt()
     if ok and optimist.argv['require-echo'] isnt false
-      repl.rli.write vName
+      repl.write vName
 
   repl.defineCommand 'require',
     help: "Require a module and assign it to a variable with the same name"

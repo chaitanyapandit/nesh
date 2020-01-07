@@ -42,31 +42,31 @@ exports.postStart = (context) ->
         size = Math.min maxSize, stat.size
         # Read last `size` bytes from the file
         readFd = fs.openSync repl.opts.historyFile, 'r'
-        buffer = new Buffer(size)
+        buffer = Buffer.alloc(size)
         fs.readSync readFd, buffer, 0, size, stat.size - size
         # Set the history on the interpreter
-        repl.rli.history = buffer.toString().split('\n').reverse()
+        repl.history = buffer.toString().split('\n').reverse()
         # If the history file was truncated we should pop off a potential partial line
-        repl.rli.history.pop() if stat.size > maxSize
+        repl.history.pop() if stat.size > maxSize
         # Shift off the final blank newline
-        repl.rli.history.shift() if repl.rli.history[0] is ''
-        repl.rli.historyIndex = -1
-        lastLine = repl.rli.history[0]
+        repl.history.shift() if repl.history[0] is ''
+        repl.historyIndex = -1
+        lastLine = repl.history[0]
 
     fd = fs.openSync repl.opts.historyFile, 'a'
 
-    repl.rli.addListener 'line', (code) ->
+    repl.addListener 'line', (code) ->
         if code and code.length and code isnt '.history' and lastLine isnt code
             # Save the latest command in the file
             fs.write fd, "#{code}\n", ->
             lastLine = code
 
-    repl.rli.on 'exit', -> fs.close fd, ->
+    repl.on 'exit', -> fs.close fd, ->
 
     # Add a command to show the history stack
     cmd =
         help: 'Show command history'
         action: ->
-            repl.outputStream.write "#{repl.rli.history[..].reverse().join '\n'}\n"
+            repl.outputStream.write "#{repl.history[..].reverse().join '\n'}\n"
             repl.displayPrompt()
     repl.defineCommand 'history', cmd

@@ -21,7 +21,7 @@ describe 'nesh', ->
             done()
 
 describe 'languages', ->
-    it 'should load coffee-script', ->
+    it 'should load coffeescript', ->
         nesh.loadLanguage 'coffee'
 
     it 'should load a language via a function', (done) ->

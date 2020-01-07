@@ -1,6 +1,6 @@
 colors = require 'colors'
 intdoc = require 'intdoc'
-lang = require 'lodash-node/modern/lang'
+lang = require 'lodash/lang'
 vm = require 'vm'
 
 __doc__ = """Shows documentation for an expression; you can also type Ctrl-Q in-line"""
@@ -117,7 +117,7 @@ exports.postStart = (context) ->
         showCode = false
       doc = document toDoc, false, showCode
       repl.__neshDoc__lastDoc = toDoc
-      repl.rli.write input
+      repl.write input
     else
       repl.__neshDoc__lastDoc = null
       originalEval input, context, filename, callback
