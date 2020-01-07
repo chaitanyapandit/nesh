@@ -17,3 +17,4 @@ exports.postStart = (context) ->
         	vm.runInThisContext repl.opts.evalData
         else
         	vm.runInContext repl.opts.evalData, repl.context
+	    repl.displayPrompt()
