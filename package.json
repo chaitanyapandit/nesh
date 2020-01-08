@@ -50,10 +50,10 @@
     "underscore": "^1.9.2"
   },
   "peerDependencies": {
-    "coffeescript": "^1.12.7"
+    "coffeescript": "^2.5.0"
   },
   "devDependencies": {
-    "coffeescript": "^1.12.7",
+    "coffeescript": "^2.5.0",
     "mocha": "^7.0.0"
   },
   "engines": {
