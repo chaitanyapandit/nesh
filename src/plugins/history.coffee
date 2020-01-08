@@ -22,7 +22,7 @@ exports.description = 'Provides persistent history between sessions'
 
 exports.setup = (context) ->
     {defaults, config} = context.nesh
-    defaults.historyFile ?= path.join(config.home, '.node_history')
+    defaults.historyFile = null
     defaults.historyMaxInputSize ?= 10240
 
 exports.postStart = (context) ->

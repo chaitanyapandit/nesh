@@ -49,5 +49,5 @@ exports.setup = ({nesh}) ->
     nesh.defaults.prompt = 'babel> '
     nesh.defaults.useGlobal = true
 
-    # Save history in ~/.babel_history
-    nesh.defaults.historyFile = path.join(nesh.config.home, '.babel_history')
+    # Disable history
+    nesh.defaults.historyFile = null

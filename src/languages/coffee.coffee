@@ -29,5 +29,5 @@ exports.setup = (context) ->
     if not nesh.defaults.useGlobal
         log.warn 'Warning: inherited global context requires CoffeeScript > 1.6.3'
         log.warn '         packages that modify built-in prototypes may not work'
-    # Save history in ~/.coffee_history
-    nesh.defaults.historyFile = path.join(nesh.config.home, '.coffee_history')
+    # Disable history
+    nesh.defaults.historyFile = null
